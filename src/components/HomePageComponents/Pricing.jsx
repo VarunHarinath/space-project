@@ -1,8 +1,8 @@
 const Pricing = () => {
   const plan = {
-    name: "Basic plan",
+    name: "Premuim",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    price: 32,
+    price: "1,500",
     isMostPop: true,
     features: [
       "Curabitur faucibus",
@@ -105,7 +105,7 @@ const Pricing = () => {
         <div className="relative max-w-xl space-y-3 px-4 md:px-0">
           <h3 className="text-indigo-600 font-semibold">Pricing</h3>
           <p className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-            Pay as you grow
+            Monthly Membership
           </p>
           <div className="max-w-xl">
             <p>
@@ -140,7 +140,7 @@ const Pricing = () => {
                   <p className="mt-3 sm:text-sm">{plan.desc}</p>
                 </div>
                 <div className="flex-none text-gray-800 text-2xl font-semibold sm:text-3xl">
-                  ${plan.price}{" "}
+                  ₹{plan.price}{" "}
                   <span className="text-xl text-gray-600 font-normal">/mo</span>
                 </div>
               </div>

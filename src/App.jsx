@@ -16,4 +16,3 @@ const App = () => {
   );
 };
 export default App;
-// Compare this snippet from src/index.css:
