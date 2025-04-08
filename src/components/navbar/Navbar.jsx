@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Banner from "./Banner";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import navigation from "../../constants/navigation";
 
 const Navbar = () => {
@@ -18,14 +17,14 @@ const Navbar = () => {
       <nav className="bg-white w-full border-b md:border-0 md:static">
         <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
-            <a href="javascript:void(0)">
+            <Link to="/">
               <img
                 src="https://www.floatui.com/logo.svg"
                 width={120}
                 height={50}
                 alt="Float UI logo"
               />
-            </a>
+            </Link>
             <div className="md:hidden">
               <button
                 className="text-gray-700 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
@@ -69,22 +68,25 @@ const Navbar = () => {
             }`}
           >
             <ul className="justify-center items-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              {navigation.map((item, idx) => {
-                return (
-                  <li key={idx} className="text-gray-600 hover:text-indigo-600">
-                    <a href={item.path}>{item.title}</a>
-                  </li>
-                );
-              })}
+              {navigation.map((item, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={item.path}
+                    className="text-gray-600 hover:text-indigo-600"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="hidden md:inline-block">
-            <a
-              href="javascript:void(0)"
+            <Link
+              to="/login"
               className="py-3 px-4 text-white bg-indigo-600 hover:bg-indigo-700 rounded-md shadow"
             >
-              Get Started
-            </a>
+              Login
+            </Link>
           </div>
         </div>
       </nav>
