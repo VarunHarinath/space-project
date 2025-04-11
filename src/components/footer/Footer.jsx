@@ -1,4 +1,4 @@
-const footer = () => {
+const Footer = () => {
   const footerNavs = [
     {
       href: "javascript:void()",
@@ -112,4 +112,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;
