@@ -32,4 +32,4 @@ jobs:
           java-version: "17"
 
       - name: Run the Test scripts
-        run: mvn -f test/pom.xml test
+        run: mvn test
