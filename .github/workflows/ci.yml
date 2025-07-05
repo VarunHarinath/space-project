@@ -33,4 +33,4 @@ jobs:
 
       - name: Run the Test scripts
         run: mvn test
-        working-directory: .
+        working-directory: ./test
