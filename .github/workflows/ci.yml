@@ -1,0 +1,35 @@
+name: Test CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Installing front end dependencies
+        run: npm ci
+      - name: Building Frontend
+        run: npm run build
+      - name: Starting Frontend
+        run: npm run preview &
+      - name: wait for the server
+        run: npx wait-on http://localhost:4173
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Run the Test scripts
+        run: mvn -f test/pom.xml test
