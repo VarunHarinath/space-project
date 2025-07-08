@@ -13,23 +13,37 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Installing front end dependencies
         run: npm ci
+
       - name: Building Frontend
         run: npm run build
+
       - name: Starting Frontend
         run: npm run preview &
+
       - name: wait for the server
         run: npx wait-on http://localhost:4173
+
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "23"
+
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            maven-${{ runner.os }}-
 
       - name: Run the Test scripts
         run: mvn test
