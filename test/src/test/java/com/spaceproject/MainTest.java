@@ -28,7 +28,7 @@ public class MainTest {
         options.addArguments("--disable-dev-shm-usage");
         webdriver = new ChromeDriver(options);
         wait = new WebDriverWait(webdriver,Duration.ofSeconds(10));
-        webdriver.get("http://localhost:5173");
+        webdriver.get("http://localhost:4173");
     }
 
     @Test(priority = 0)
