@@ -14,9 +14,8 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.Objects;
 
-public class Main {
+public class MainTest {
     private WebDriver webdriver;
     private WebDriverWait wait;
 
